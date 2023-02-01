@@ -9,10 +9,10 @@ class EsaController extends Controller
     //
     public function top()
     {
-        return view('Esa.top');
+        return view('top');
     }
     public function sign_up()
     {
-        return view('Esa.sign_up');
+        return view('sign_up');
     }
 }
