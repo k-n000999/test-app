@@ -12,7 +12,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Http\Controllers\EsaController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [EsaController::class, 'top'])->name('top');
+
+Route::get('/sign_up', [EsaController::class, 'sign_up'])->name('sign_up');
