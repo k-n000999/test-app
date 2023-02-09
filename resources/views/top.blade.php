@@ -12,6 +12,7 @@
             <table class="table">
                 <thead>
                     <tr>
+                        <th>ID</th>
                         <th>名前</th>
                         <th>年齢</th>
                         <th>生年月日</th>
@@ -22,6 +23,21 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach($students as $students)
+                    <tr>
+                        <td>{{ $students->id }}</td>
+                        <td>{{ $students->name }}</td>
+                        <td>{{ $students->age }}</td>
+                        <td>{{ $students->birthday }}</td>
+                        <td>{{ $students->email }}</td>
+                        <td>{{ $students->tel }}</td>
+                        <td>{{ $students->plan }}</td>
+                        <td>
+                            <button class="tb-btn tb-btn-edit">編集</button>
+                            <button class="tb-btn tb-btn-del">削除</button>
+                        </td>
+                    </tr>
+                    @endforeach
                     <tr>
                         <td>鈴木 健司</td>
                         <td>20</td>
