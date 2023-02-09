@@ -3,13 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Student;
 
 class EsaController extends Controller
 {
     //
     public function top()
     {
-        return view('top');
+        $students = Student::all();
+
+        return view(
+            'top',
+            ['students' => $students]
+        );
     }
     public function sign_up()
     {
