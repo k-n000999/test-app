@@ -17,3 +17,6 @@ use App\Http\Controllers\EsaController;
 Route::get('/', [EsaController::class, 'top'])->name('top');
 
 Route::get('/sign_up', [EsaController::class, 'sign_up'])->name('sign_up');
+
+
+Route::post('/search', [EsaController::class, 'search'])->name('search');
