@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Student;
+use App\Http\Requests\CreateRequest;
 
 class EsaController extends Controller
 {
@@ -28,5 +29,12 @@ class EsaController extends Controller
             'top',
             ['students' => $students]
         );
+    }
+    public function create(CreateRequest $request)
+    {
+
+
+
+        return redirect()->route('top');
     }
 }
