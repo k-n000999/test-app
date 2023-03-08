@@ -33,7 +33,8 @@ class EsaController extends Controller
     public function create(CreateRequest $request)
     {
 
-
+        $inputs = $request->all();
+        Student::create($inputs);
 
         return redirect()->route('top');
     }

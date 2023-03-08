@@ -23,10 +23,6 @@
                 <div class="form-inner">
                     <div class="row">
                         <div class="form-group col-sm-5">
-                            <label for="name">id</label>
-                            <input type="text" class="form-control" id="id" placeholder="0000" name="id">
-                        </div>
-                        <div class="form-group col-sm-5">
                             <label for="name">名前</label>
                             <input type="text" class="form-control" id="name" placeholder="阿部 隆" name="name">
                         </div>
