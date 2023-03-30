@@ -23,21 +23,49 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($students as $students)
+                    @foreach($students as $student)
                     <tr>
-                        <td>{{ $students->id }}</td>
-                        <td>{{ $students->name }}</td>
-                        <td>{{ $students->age }}</td>
-                        <td>{{ $students->birthday }}</td>
-                        <td>{{ $students->email }}</td>
-                        <td>{{ $students->tel }}</td>
-                        <td>{{ $students->plan }}</td>
+                        <td>{{ $student->id }}</td>
+                        <td>{{ $student->name }}</td>
+                        <td>{{ $student->age }}</td>
+                        <td>{{ $student->birthday }}</td>
+                        <td>{{ $student->email }}</td>
+                        <td>{{ $student->tel }}</td>
+                        <td>{{ $student->plan }}</td>
                         <td>
-                            <button class="tb-btn tb-btn-edit">編集</button>
-                            <button class="tb-btn tb-btn-del">削除</button>
+                            <button class="tb-btn tb-btn-edit" onclick="location.href='/edit/{{ $student->id }}'">編集</button>
+                            <button class="tb-btn tb-btn-del" data-toggle="modal" data-target="#exampleModal{{ $student->id }}">削除</button>
+                            <!-- Modal -->
+                            <div class="modal" id="exampleModal{{ $student->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">削除しますか？</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary tb-btn" data-dismiss="modal">中止</button>
+                                            <form action="{{ route('delete', [$student->id]) }}" method="POST">
+                                                @csrf
+                                                <button type="submit" class="btn btn-primary tb-btn tb-btn-del">削除</button>
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </td>
                     </tr>
+
                     @endforeach
+                    <!-- フラッシュメッセージ -->
+                    @if (session('message'))
+                    <div class="alert alert-danger" role="alert">
+                        {{ session('message') }}
+                    </div>
+                    @endif
                 </tbody>
             </table>
 

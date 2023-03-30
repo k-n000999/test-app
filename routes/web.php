@@ -20,3 +20,10 @@ Route::get('/sign_up', [EsaController::class, 'sign_up'])->name('sign_up');
 Route::post('/create', [EsaController::class, 'create'])->name('create');
 
 Route::post('/search', [EsaController::class, 'search'])->name('search');
+
+Route::get('/edit/{id}', [EsaController::class, 'edit'])->name('edit');
+Route::post('/update', [EsaController::class, 'update'])->name('update');
+
+Route::post('/delete/{id}', [EsaController::class, 'delete'])->name('delete');
+
+Route::get('/login', [EsaController::class, 'login'])->name('login');
