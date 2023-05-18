@@ -60,18 +60,11 @@
                     </tr>
 
                     @endforeach
-                    <!-- フラッシュメッセージ -->
-                    @if (session('message'))
-                    <div class="alert alert-danger" role="alert">
-                        {{ session('message') }}
-                    </div>
-                    @endif
+
                 </tbody>
             </table>
-
         </section>
         <!-- /.container-fluid .contents-area -->
-
         <nav class="pager">
             <ul class="pagination justify-content-center">
                 <li class="page-item active">
@@ -87,6 +80,5 @@
 
     </div>
     <!-- /.container-fluid .wrapper-->
-
 </main>
 @endsection

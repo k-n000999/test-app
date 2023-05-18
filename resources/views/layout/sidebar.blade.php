@@ -7,5 +7,9 @@
             <li><a href="{{ url('/') }}" class="top-page-btn"><i class="fas fa-home"></i>トップページ</a></li>
         </ul>
     </nav>
+    <form action="{{ route('logout') }}" method="POST">
+        @csrf
+        <button class="logout-btn">ログアウト</button>
+    </form>
 </div>
 @endsection

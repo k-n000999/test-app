@@ -2,7 +2,6 @@
 @section('title', '新規登録画面 | ESA ACADEMY 生徒管理システム')
 @include('layout.sidebar')
 <!-- /.col-sm-2 .sidebar -->
-
 <!-- /.header .col-sm-10 -->
 @section('content')
 <main class="sign-up">
@@ -55,7 +54,6 @@
                                 <option {{ isset($students) && $students->plan === 'STANDARD' ? 'selected' : '' }}>STANDARD</option>
                             </select>
                         </div>
-
                     </div>
                     <!-- /.row -->
                 </div>
