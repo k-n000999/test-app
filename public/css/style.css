@@ -175,7 +175,7 @@ ul {
   width: 80%;
   border: none;
   font-size: 16px;
-  background: #F0F0F0;
+  background: white;
 }
 
 .input-btn input:focus-visible {
@@ -207,6 +207,31 @@ ul {
 
 .input-btn i:hover {
   opacity: 0.55;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  width: 300px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  padding: 6px;
+  background-color: white;
+}
+
+.search-input {
+  flex-grow: 1;
+  border: none;
+  padding: 4px;
+  font-size: 16px;
+  background-color: white;
+}
+
+.search-button {
+  background-color: white;
+  border: none;
+  padding: 6px;
+  cursor: pointer;
 }
 
 /* トップページ 生徒リスト
@@ -437,14 +462,16 @@ ul {
   width: 40%;
   margin: 2rem auto;
 }
+
 .form_login {
   width: 100%;
 }
 
 .login-con {
   background: #EDF7FA;
-  height: 100%;
-  padding: 30px 42px 84px
+  height: 100vh;
+  padding: 30px 42px 84px;
+  overflow-y: auto;
 }
 
 .login-ul {
@@ -487,10 +514,28 @@ ul {
   bottom: 32px;
   padding: 10px;
 }
+
 .logout-btn:hover {
   outline: none;
 }
 
 .pulldown {
   display: block;
+}
+
+.form_login-ttl {
+  font-weight: bold;
+}
+
+.form_login-font {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.side-li-mb {
+  margin-bottom: 26px;
+}
+
+.mb{
+  margin-bottom: 1rem;
 }

@@ -13,7 +13,7 @@
     <!-- STYLE CSS -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <!-- bootstrap -->
-    <link href="{{ asset('./css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="./css/app.css">
 
     <!-- Optional JavaScript -->
 
@@ -24,6 +24,7 @@
 </head>
 
 <body>
+    @yield('register')
     <div class="container-fluid">
         <div class="row">
             @yield('sidebar')
