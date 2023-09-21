@@ -432,3 +432,65 @@ ul {
 .form-btn i {
   font-size: 16px;
 }
+
+.box_login {
+  width: 40%;
+  margin: 2rem auto;
+}
+.form_login {
+  width: 100%;
+}
+
+.login-con {
+  background: #EDF7FA;
+  height: 100%;
+  padding: 30px 42px 84px
+}
+
+.login-ul {
+  text-align: right;
+}
+
+.login-li {
+  display: inline;
+}
+
+.login-page-btn {
+  width: 15%;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: .5em;
+  background-color: #52B6DA;
+  padding: 10px 0;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.login-page-btn a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.logout-btn {
+  color: #ee8485;
+  background-color: #FAEDED;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: none;
+  outline: none;
+  position: absolute;
+  left: 30px;
+  bottom: 32px;
+  padding: 10px;
+}
+.logout-btn:hover {
+  outline: none;
+}
+
+.pulldown {
+  display: block;
+}
