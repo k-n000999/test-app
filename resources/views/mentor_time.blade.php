@@ -5,7 +5,7 @@
 @section('content')
 <main class="student-list">
     <div class="container-fluid wrapper">
-        <h1>時間登録</h1>
+        <h1 class="text-right">時間登録</h1>
         <form action="{{ route('mentor_timeslot') }}" method="POST" class="d-flex flex-column w-50 m-auto">
             @csrf
             <input type="hidden" name="mentor_id" value="{{ $mentor->id }}">
