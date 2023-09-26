@@ -5,7 +5,7 @@
 @section('content')
 <main class="student-list">
     <div class="container-fluid wrapper">
-        <h1>予約状況</h1>
+        <h1 class="text-right">予約状況</h1>
         <p class="result">15件</p>
         <ul class="nav nav-pills mb">
             <li class="nav-item">

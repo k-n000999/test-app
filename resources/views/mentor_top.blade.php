@@ -7,7 +7,7 @@
 @section('content')
 <main class="student-list">
     <div class="container-fluid wrapper">
-        <h1>生徒一覧</h1>
+        <h1 class="text-right">生徒一覧</h1>
         <p class="result">15件</p>
         @if(session('message'))
         <div class="alert alert-success">
@@ -37,13 +37,7 @@
         <!-- /.container-fluid .contents-area -->
         <nav class="pager">
             <ul class="pagination justify-content-center">
-                <li class="page-item active">
-                    <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item">
-                    <a class="pager-next" href="#"><i class="fas fa-angle-right"></i></a>
-                </li>
+                {{ $students->links('vendor.pagination.bootstrap-4') }}
             </ul>
         </nav>
         <!-- /.pager -->

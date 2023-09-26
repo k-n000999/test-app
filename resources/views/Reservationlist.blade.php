@@ -5,7 +5,7 @@
 @section('content')
 <main class="student-list">
     <div class="container-fluid wrapper">
-        <h1>予約状況</h1>
+        <h1 class="text-right">予約状況</h1>
         <ul class="nav nav-pills mb">
             <li class="nav-item">
                 <a href="#contents1" class="nav-link {{ $status === 'booked' ? 'active' : '' }}" data-toggle="tab">予約済み</a>

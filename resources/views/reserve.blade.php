@@ -5,7 +5,7 @@
 @section('content')
 <main class="student-list">
     <div class="container-fluid wrapper">
-        <h1>予約可能時間</h1>
+        <h1 class="text-right">予約可能時間</h1>
         <p class="result">{{ $mentor->name }}</p>
         <section class="container-fluid contents-area">
             <table class="table">
