@@ -125,6 +125,8 @@ ul {
   padding: 0;
   margin-left: 16.666667%;
   /* .col-md-2のwidthの値をいれています。 */
+  overflow-y: auto;
+  height: 100vh;
 }
 
 .wrapper {

@@ -95,7 +95,8 @@ class EsaController extends Controller
         $students = Student::all();
         $mentors = Mentor::all();
         $user = Auth::user();
-
+        $students = Student::paginate(10);
+        $mentors = Mentor::paginate(10);
         if ($user->role === 'student') {
             return view('student_top', ['mentors' => $mentors]);
         } elseif ($user->role === 'mentor') {
@@ -178,7 +179,8 @@ class EsaController extends Controller
     {
         $user = Auth::user();
         $mentor = $user->id;
-        $timeSlots = Time_slots::where('mentor_id', $mentor)->orderBy('start_time', 'asc')->get();
+        $timeSlots = Time_slots::where('mentor_id', $mentor)->orderBy('start_time', 'asc')->paginate(5);;
+
 
         return view('Timelist', ['timeSlots' => $timeSlots]);
     }
@@ -264,6 +266,6 @@ class EsaController extends Controller
             return strtotime($a['start_time']) - strtotime($b['start_time']);
         });
 
-        return view('student_reserve_status', ['mentorTimeSlots' => $mentorTimeSlots, 'timeSlot' => $timeSlot, 'status' => $status]);
+        return view('student_reserve_status', ['mentorTimeSlots' => $mentorTimeSlots, 'status' => $status]);
     }
 }

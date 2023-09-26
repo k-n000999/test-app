@@ -6,7 +6,7 @@
 <!-- /.header .col-sm-10 -->
 @section('content')
 <main class="student-list">
-    <div class="container-fluid wrapper">
+    <div class="container-fluid wrapper text-right">
         <p class="result">15件</p>
         <section class="container-fluid contents-area">
             <table class="table">

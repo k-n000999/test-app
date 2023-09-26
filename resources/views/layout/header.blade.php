@@ -1,5 +1,5 @@
 @section('header')
-<div class="header col-sm-10">
+<div class="header col-sm-10 bg-light">
     <form action="{{ route('search') }}" method="POST" class="search-box">
         @csrf
         <div class="input-btn col-sm-4 search-input">
