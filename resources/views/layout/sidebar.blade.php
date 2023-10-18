@@ -4,9 +4,9 @@
     <nav>
         <ul>
             @if(Auth::user()->role === 'mentor')
-            <li class="side-li-mb"><a href="{{ url('mentor/time') }}" class="sign-up-btn"><i class="fas fa-plus"></i>時間登録</a></li>
+            <li class="side-li-mb"><a href="{{ route('mentor_time') }}" class="sign-up-btn"><i class="fas fa-plus"></i>時間登録</a></li>
             <li class="side-li-mb"><a href="{{ Auth::user()->role === 'student' ? route('student_top') : route('mentor_top') }}" class="top-page-btn"></i>生徒</a></li>
-            <li class="side-li-mb"><a href="{{ url('/mentor/Timelist') }}" class="top-page-btn">予約情報</a></li>
+            <li class="side-li-mb"><a href="{{ route('mentor_timeList') }}" class="top-page-btn">予約情報</a></li>
             @endif
             @if(Auth::user()->role === 'student')
             <li class="side-li-mb"><a href="{{ Auth::user()->role === 'student' ? route('student_top') : route('mentor_top') }}" class="top-page-btn"></i>メンター</a></li>

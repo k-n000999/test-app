@@ -4,7 +4,7 @@
 <main>
     <div class="login-con">
         <ul class="login-ul">
-            <li class="login-li"><a href="{{ url('/login') }}"><button type="submit" class="login-page-btn">ログイン</button></a></li>
+            <li class="login-li"><a href="{{ route('showLogin') }}"><button type="submit" class="login-page-btn">ログイン</button></a></li>
         </ul>
         <h2 class="form_login-ttl">新規登録</h2>
         <div class="inner_login">

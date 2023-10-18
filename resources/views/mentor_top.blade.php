@@ -7,7 +7,7 @@
 @section('content')
 <main class="student-list">
     <div class="container-fluid wrapper">
-        <h1 class="text-right">生徒一覧</h1>
+        <h1>生徒一覧</h1>
         <p class="result">15件</p>
         @if(session('message'))
         <div class="alert alert-success">

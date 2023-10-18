@@ -18,4 +18,14 @@ class Mentor extends Model
         'experience_years',
         'introduction',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'detail_id');
+    }
+
+    public function timeSlots()
+    {
+        return $this->hasMany(TimeSlot::class, 'mentor_id');
+    }
 }

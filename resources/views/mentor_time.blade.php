@@ -5,8 +5,14 @@
 @section('content')
 <main class="student-list">
     <div class="container-fluid wrapper">
-        <h1 class="text-right">時間登録</h1>
-        <form action="{{ route('mentor_timeslot') }}" method="POST" class="d-flex flex-column w-50 m-auto">
+        <h1>時間登録</h1>
+        <!-- メッセージ表示領域 -->
+        @if(session('message'))
+        <div class="alert alert-success">
+            {{ session('message') }}
+        </div>
+        @endif
+        <form action="{{ route('mentor_timeSlot') }}" method="POST" class="d-flex flex-column w-50 m-auto">
             @csrf
             <input type="hidden" name="mentor_id" value="{{ $mentor->id }}">
             <label for="start_time">開始時間:</label>
