@@ -25,6 +25,7 @@
 
 <body>
     @yield('register')
+    @if (empty(View::yieldContent('register')))
     <div class="container-fluid">
         <div class="row">
             @yield('sidebar')
@@ -39,6 +40,7 @@
         </div>
         <!-- /.row -->
     </div>
+    @endif
     <!-- /.container-fluid -->
 </body>
 <script>

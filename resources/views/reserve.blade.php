@@ -5,8 +5,8 @@
 @section('content')
 <main class="student-list">
     <div class="container-fluid wrapper">
-        <h1 class="text-right">予約可能時間</h1>
-        <p class="result">{{ $mentor->name }}</p>
+        <h1>予約可能時間</h1>
+        <p class="result">{{ $user->name }}</p>
         <section class="container-fluid contents-area">
             <table class="table">
                 <!-- メッセージ表示領域 -->
@@ -23,7 +23,7 @@
                             <td>{{ $time_slot->start_time }} ～ {{ $time_slot->end_time }}</td>
                             <form action="{{ route('reserve', [$time_slot->id]) }}" method="POST">
                                 @csrf
-                                <td><button class="tb-btn tb-btn-edit" onclick="location.href='/reserve/{{ $mentor->id }}'">予約</button></td>
+                                <td><button class="tb-btn tb-btn-edit" onclick="location.href='/reserve/{{ $user->detail_id }}'">予約</button></td>
                             </form>
                         </tr>
                         @endforeach

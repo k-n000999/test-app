@@ -19,4 +19,14 @@ class Student extends Model
         'plan',
         'learning_language'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'detail_id');
+    }
+
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class, 'student_id');
+    }
 }

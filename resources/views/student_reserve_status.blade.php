@@ -5,7 +5,7 @@
 @section('content')
 <main class="student-list">
     <div class="container-fluid wrapper">
-        <h1 class="text-right">予約状況</h1>
+        <h1>予約状況</h1>
         <p class="result">15件</p>
         <ul class="nav nav-pills mb">
             <li class="nav-item">
@@ -22,9 +22,9 @@
         @endif
         <section class="container-fluid contents-area">
             <div class="tab-content">
-                @if ($mentorTimeSlots)
+                @if ($reservations->count() > 0)
                 <div id="contents1" class="tab-pane active">
-                    @if (in_array('booked', $status))
+                    @if ($status->contains('booked'))
                     <table class="table">
                         <thead>
                             <tr>
@@ -34,16 +34,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($mentorTimeSlots as $timeSlot)
-                            @if ($timeSlot['status'] === 'booked')
+                            @foreach($reservations as $reservation)
+                            @if ($reservation->timeSlot->status === 'booked')
                             <tr>
-                                <td>{{ $timeSlot['mentor_name'] }}</td>
-                                <td>{{ $timeSlot['start_time'] }}</td>
-                                <td>{{ $timeSlot['end_time'] }}</td>
-                                <td class="d-none">{{ $timeSlot['timeSlot_id'] }}</td>
-                                <td><button class="tb-btn tb-btn-del w-75" data-toggle="modal" data-target="#exampleModal{{ $timeSlot['timeSlot_id'] }}">キャンセル</button></td>
+                                <td>{{ $reservation->timeSlot->mentor->name }}</td>
+                                <td>{{ $reservation->timeSlot->start_time }}</td>
+                                <td>{{ $reservation->timeSlot->end_time }}</td>
+                                <td class="d-none">{{ $reservation->timeSlot->id }}</td>
+                                <td><button class="tb-btn tb-btn-del w-75" data-toggle="modal" data-target="#exampleModal{{ $reservation->timeSlot->id }}">キャンセル</button></td>
                                 <!-- Modal -->
-                                <div class="modal" id="exampleModal{{ $timeSlot['timeSlot_id'] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal" id="exampleModal{{ $reservation->timeSlot->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -54,7 +54,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary tb-btn" data-dismiss="modal">中止</button>
-                                                <form action="{{ route('student_delete', $timeSlot['timeSlot_id']) }}" method="POST">
+                                                <form action="{{ route('student_delete', $reservation->timeSlot->id) }}" method="POST">
                                                     @csrf
                                                     <button type="submit" class="btn btn-primary tb-btn tb-btn-del  w-25">キャンセル</button>
                                                 </form>
@@ -70,7 +70,7 @@
                     @endif
                 </div>
                 <div id="contents2" class="tab-pane">
-                    @if (in_array('available', $status))
+                    @if ($status->contains('available'))
                     <table class="table">
                         <thead>
                             <tr>
@@ -80,16 +80,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($mentorTimeSlots as $timeSlot)
-                            @if ($timeSlot['status'] === 'available')
+                            @foreach($reservations as $reservation)
+                            @if ($reservation->timeSlot->status === 'available')
                             <tr>
-                                <td>{{ $timeSlot['mentor_name'] }}</td>
-                                <td>{{ $timeSlot['start_time'] }}</td>
-                                <td>{{ $timeSlot['end_time'] }}</td>
-                                <td class="d-none">{{ $timeSlot['timeSlot_id'] }}</td>
-                                <td><button class="tb-btn tb-btn-del w-75" data-toggle="modal" data-target="#exampleModal{{ $timeSlot['timeSlot_id'] }}">キャンセル</button></td>
+                                <td>{{ $reservation->timeSlot->mentor->name }}</td>
+                                <td>{{ $reservation->timeSlot->start_time }}</td>
+                                <td>{{ $reservation->timeSlot->end_time }}</td>
+                                <td class="d-none">{{ $reservation->timeSlot->id }}</td>
+                                <td><button class="tb-btn tb-btn-del w-75" data-toggle="modal" data-target="#exampleModal{{ $reservation->timeSlot->id }}">キャンセル</button></td>
                                 <!-- Modal -->
-                                <div class="modal" id="exampleModal{{ $timeSlot['timeSlot_id'] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal" id="exampleModal{{ $reservation->timeSlot->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -100,7 +100,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary tb-btn" data-dismiss="modal">中止</button>
-                                                <form action="{{ route('student_delete', $timeSlot['timeSlot_id']) }}" method="POST">
+                                                <form action="{{ route('student_delete', $reservation->timeSlot->id) }}" method="POST">
                                                     @csrf
                                                     <button type="submit" class="btn btn-primary tb-btn tb-btn-del  w-25">キャンセル</button>
                                                 </form>

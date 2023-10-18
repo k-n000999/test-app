@@ -5,7 +5,7 @@
 @section('content')
 <main class="student-list">
     <div class="container-fluid wrapper">
-        <h1 class="text-right">予約情報</h1>
+        <h1>予約情報</h1>
         <p class="result">5件</p>
         @if(session('message'))
         <div class="alert alert-success">
@@ -27,7 +27,7 @@
                         <td>{{ $timeSlot->end_time }}</td>
                         <td class="d-none">{{ $timeSlot->id }}</td>
                         <td>
-                            <button class="tb-btn tb-btn-edit w-50" onclick="location.href='{{ route('mentor_Reservationlist', ['id' => $timeSlot->id]) }}'">予約状況</button>
+                            <button class="tb-btn tb-btn-edit w-50" onclick="location.href='{{ route('mentor_reservationList', ['id' => $timeSlot->id]) }}'">予約状況</button>
                         </td>
                     </tr>
                     @endforeach

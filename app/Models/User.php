@@ -43,4 +43,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function mentor()
+    {
+        return $this->belongsTo(Mentor::class, 'detail_id');
+    }
+    public function student()
+    {
+        return $this->belongsTo(Student::class, 'detail_id');
+    }
+
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class, 'student_id');
+    }
 }

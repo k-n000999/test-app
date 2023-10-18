@@ -7,7 +7,7 @@
 @section('content')
 <main class="student-list">
     <div class="container-fluid wrapper">
-        <h1 class="text-right">メンター一覧</h1>
+        <h1>メンター一覧</h1>
         <p class="result">15件</p>
         <section class="container-fluid contents-area">
             <table class="table">
@@ -29,27 +29,6 @@
                         <td>{{ $mentor->introduction }}</td>
                         <td>
                             <button class="tb-btn tb-btn-edit" onclick="location.href='/reserve/{{ $mentor->id }}'">予約</button>
-
-                            <!-- Modal -->
-                            <div class="modal" id="exampleModal{{ $mentor->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">削除しますか？</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary tb-btn" data-dismiss="modal">中止</button>
-                                            <form action="{{ route('delete', [$mentor->id]) }}" method="POST">
-                                                @csrf
-                                                <button type="submit" class="btn btn-primary tb-btn tb-btn-del">削除</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </td>
                     </tr>
                     @endforeach
