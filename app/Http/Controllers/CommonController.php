@@ -8,6 +8,7 @@ use App\Models\Mentor;
 use App\Models\User;
 use App\Models\TimeSlot;
 use App\Models\Reservation;
+use App\Models\Tag;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
@@ -57,6 +58,7 @@ class CommonController extends Controller
 
     public function register(Request $request)
     {
+
         $user = $request->validate([
             'name' => ['required'],
             'email' => ['required', 'email'],
@@ -87,7 +89,24 @@ class CommonController extends Controller
                 ]);
                 $user->detail_id = $mentor->id;
             }
+
             $user->save();
+
+            //タグの登録
+            Preg_match_all('/#([a-zA-Z0-9０-９ぁ-んァ-ヶー一-龠]+)/u', $request->tag_name, $match);
+
+            $tags = [];
+            foreach ($match[1] as $tag) {
+                $found = Tag::firstOrCreate(['name' => $tag]);
+
+                array_push($tags, $found);
+            }
+
+            $tag_ids = [];
+            foreach ($tags as $tag) {
+                array_push($tag_ids, $tag->id);
+            }
+            $user->tags()->sync($tag_ids);
         });
 
         return redirect()->route('showLogin');

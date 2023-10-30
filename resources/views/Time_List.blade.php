@@ -27,7 +27,7 @@
                         <td>{{ $timeSlot->end_time }}</td>
                         <td class="d-none">{{ $timeSlot->id }}</td>
                         <td>
-                            <button class="tb-btn tb-btn-edit w-50" onclick="location.href='{{ route('mentor_reservationList', ['id' => $timeSlot->id]) }}'">予約状況</button>
+                            <button class="tb-btn tb-btn-edit w-50" onclick="location.href='{{ route('mentor_reservation_list', ['id' => $timeSlot->id]) }}'">予約状況</button>
                         </td>
                     </tr>
                     @endforeach

@@ -12,6 +12,7 @@
             <li class="side-li-mb"><a href="{{ Auth::user()->role === 'student' ? route('student_top') : route('mentor_top') }}" class="top-page-btn"></i>メンター</a></li>
             <li class="side-li-mb"><a href="{{ url('/status/{id}') }}" class="top-page-btn">予約状況</a></li>
             @endif
+            <li class="side-li-mb"><a href="{{ route('tagList') }}" class="top-page-btn">タグ一覧</a></li>
         </ul>
     </nav>
     <form action="{{ route('logout') }}" method="POST">

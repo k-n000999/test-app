@@ -11,17 +11,18 @@ return new class extends Migration
      *
      * @return void
      */
+
+    public $timestamps = true;
     public function up()
     {
-        Schema::create('students', function (Blueprint $table) {
+        Schema::create('user_tags', function (Blueprint $table) {
             $table->id();
-            $table->string(column: 'name');
-            $table->integer(column: 'age');
-            $table->date(column: 'birthday');
-            $table->string(column: 'email');
-            $table->integer(column: 'tel');
-            $table->string(column: 'plan');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('tag_id');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('tag_id')->references('id')->on('tags');
         });
     }
 
@@ -32,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('students');
+        Schema::dropIfExists('user_tags');
     }
 };

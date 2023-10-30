@@ -19,6 +19,7 @@ use App\Http\Controllers\StudentReserveController;
 use App\Http\Controllers\StudentReservationStatusController;
 use App\Http\Controllers\MentorTimeRegisterController;
 use App\Http\Controllers\ReservationInfoController;
+use App\Http\Controllers\TagListController;
 
 Route::group(['middleware' => ['guest']], function () {
     Route::get('/login', [CommonController::class, 'showLogin'])->name('showLogin');
@@ -28,13 +29,12 @@ Route::group(['middleware' => ['guest']], function () {
     Route::post('/register', [CommonController::class, 'register'])->name('register');
 });
 
-Route::post('/student/search', [TopController::class, 'search'])->name('search');
-
 // 学生認証ルート
 Route::group(['middleware' => ['auth']], function () {
     Route::post('/student/logout', [CommonController::class, 'logout'])->name('logout');
+    Route::get('/student/tagList', [TagListController::class, 'tagList'])->name('tagList');
 
-    Route::get('/student/top', [TopController::class, 'top'])->name('student_top');
+    Route::get('/student/top', [TopController::class, 'studentTop'])->name('student_top');
 
     Route::get('/reserve/{id}', [StudentReserveController::class, 'showReserve'])->name('showReserve');
     Route::post('/reserve/{id}', [StudentReserveController::class, 'reserve'])->name('reserve');
@@ -46,14 +46,15 @@ Route::group(['middleware' => ['auth']], function () {
 // メンター認証ルート
 Route::group(['middleware' => ['auth']], function () {
     Route::post('/mentor/logout', [CommonController::class, 'logout'])->name('logout');
+    Route::get('/mentor/tagList', [TagListController::class, 'tagList'])->name('tagList');
 
-    Route::get('/mentor/top', [TopController::class, 'top'])->name('mentor_top');
+    Route::get('/mentor/top', [TopController::class, 'mentorTop'])->name('mentor_top');
 
     Route::get('/mentor/time', [MentorTimeRegisterController::class, 'mentor_time'])->name('mentor_time');
     Route::post('/mentor/timeSlot', [MentorTimeRegisterController::class, 'timeSlot'])->name('mentor_timeSlot');
 
     Route::get('/mentor/TimeList', [ReservationInfoController::class, 'showTimeList'])->name('mentor_timeList');
-    Route::get('/mentor/ReservationList/{id}', [ReservationInfoController::class, 'showReservationList'])->name('mentor_reservationList');
+    Route::get('/mentor/ReservationList/{id}', [ReservationInfoController::class, 'showReservationList'])->name('mentor_reservation_list');
     Route::post('/mentor/ReservationList/{id}/approve', [ReservationInfoController::class, 'approve'])->name('mentor_approve');
     Route::post('/mentor/ReservationList/{id}/delete', [ReservationInfoController::class, 'delete'])->name('mentor_delete');
 });

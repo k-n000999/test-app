@@ -19,7 +19,7 @@ class ReservationInfoController extends Controller
     {
         $timeSlot = TimeSlot::with(['reservation.student'])->find($TimeSlotId);
 
-        return view('Reservationlist', ['timeSlot' => $timeSlot]);
+        return view('mentor_reservation_list', ['timeSlot' => $timeSlot]);
     }
 
     public function approve($id)
@@ -35,7 +35,7 @@ class ReservationInfoController extends Controller
             $timeSlots->save();
         }
 
-        return redirect()->route('mentor_ReservationList', ['id' => $timeSlots->id]);
+        return redirect()->route('mentor_reservation_list', ['id' => $timeSlots->id]);
     }
 
     public function delete($id)
@@ -45,6 +45,6 @@ class ReservationInfoController extends Controller
         $timeSlot->status = "available";
         $timeSlot->save();
 
-        return redirect()->route('mentor_ReservationList', ['id' => $timeSlot->id])->with('message', '削除しました');
+        return redirect()->route('mentor_reservation_list', ['id' => $timeSlot->id])->with('message', '削除しました');
     }
 }

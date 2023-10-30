@@ -49,6 +49,7 @@ class UserFactory extends Factory
             'name' => $name, // User と同じ名前を使用
         ], $attributes);
     }
+
     /**
      * Indicate that the model's email address should be unverified.
      *
