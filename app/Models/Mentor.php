@@ -21,7 +21,7 @@ class Mentor extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'detail_id');
+        return $this->hasOne(User::class, 'detail_id')->where('role', 'mentor');
     }
 
     public function timeSlots()

@@ -58,4 +58,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Reservation::class, 'student_id');
     }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class, 'user_tags', 'user_id', 'tag_id')->withTimestamps();
+    }
 }

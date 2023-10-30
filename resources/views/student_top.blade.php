@@ -17,6 +17,7 @@
                         <th>言語</th>
                         <th>経験年数</th>
                         <th>自己紹介</th>
+                        <th>タグ</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -27,6 +28,11 @@
                         <td>{{ $mentor->teaching_languages }}</td>
                         <td>{{ $mentor->experience_years }}</td>
                         <td>{{ $mentor->introduction }}</td>
+                        <td>
+                            @foreach($mentor->user->tags as $tag)
+                            <a href="{{ route('student_top', ['search' =>$tag->name]) }}" class="custom-tag">#{{ $tag->name }}</a>
+                            @endforeach
+                        </td>
                         <td>
                             <button class="tb-btn tb-btn-edit" onclick="location.href='/reserve/{{ $mentor->id }}'">予約</button>
                         </td>

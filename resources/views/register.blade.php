@@ -39,6 +39,10 @@
                         <option value="mentor">mentor</option>
                     </select>
                 </div>
+                <div class="box_login">
+                    <label for="tag" class="form_login-font">tag</label>
+                    <input type="text" class="form_login" id="tag_name" name="tag_name">
+                </div>
                 <div id="studentForm" style="display: none;">
                     <div class="box_login">
                         <label for="learning_language" class="form_login-font">学習中のプログラミング言語</label>

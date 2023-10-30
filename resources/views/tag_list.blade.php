@@ -7,7 +7,7 @@
 @section('content')
 <main class="student-list">
     <div class="container-fluid wrapper">
-        <h1>生徒一覧</h1>
+        <h1>タグ一覧</h1>
         <p class="result">15件</p>
         @if(session('message'))
         <div class="alert alert-success">
@@ -18,23 +18,15 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>名前</th>
-                        <th>学習中の言語</th>
-                        <th>経験レベル</th>
-                        <th>タグ</th>
+                        <th>タグ名</th>
+                        <th>登録数</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($students as $student)
+                    @foreach($tagsWithCount as $tag)
                     <tr>
-                        <td>{{ $student->name }}</td>
-                        <td>{{ $student->learning_language }}</td>
-                        <td>{{ $student->experience_level }}</td>
-                        <td>
-                            @foreach($student->user->tags as $tag)
-                            <a href="{{ route('mentor_top', ['search' =>$tag->name]) }}" class="custom-tag">#{{ $tag->name }}</a>
-                            @endforeach
-                        </td>
+                        <td>{{ $tag->name }}</td>
+                        <td>{{ $tag->users_count }}</td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -43,7 +35,7 @@
         <!-- /.container-fluid .contents-area -->
         <nav class="pager">
             <ul class="pagination justify-content-center">
-                {{ $students->links('vendor.pagination.bootstrap-4') }}
+                {{ $tagsWithCount->links('vendor.pagination.bootstrap-4') }}
             </ul>
         </nav>
         <!-- /.pager -->

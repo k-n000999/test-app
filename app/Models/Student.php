@@ -22,7 +22,7 @@ class Student extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'detail_id');
+        return $this->hasOne(User::class, 'detail_id')->where('role', 'student');
     }
 
     public function reservations()
